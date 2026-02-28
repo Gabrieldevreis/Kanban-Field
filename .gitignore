@@ -1,0 +1,114 @@
+############################
+# Node / NPM / Yarn / PNPM
+############################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+############################
+# Build outputs
+############################
+
+# Angular
+dist/
+.tmp/
+out-tsc/
+.angular/
+.vscode
+
+# NestJS
+dist/
+build/
+
+############################
+# Environment files
+############################
+.env
+.env.*
+!.env.example
+
+############################
+# Tests / Coverage
+############################
+coverage/
+*.lcov
+.nyc_output/
+
+############################
+# Logs
+############################
+logs/
+*.log
+
+############################
+# Cache
+############################
+.cache/
+.eslintcache
+.npm/
+.yarn/
+.pnpm-store/
+
+############################
+# IDEs and Editors
+############################
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# JetBrains
+.idea/
+*.iml
+
+# Vim
+*.swp
+*.swo
+
+############################
+# OS files
+############################
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Linux
+*~
+
+############################
+# TypeScript
+############################
+*.tsbuildinfo
+
+############################
+# Angular specific
+############################
+.angular/cache
+.sass-cache/
+
+############################
+# NestJS specific
+############################
+dist/
+logs/
+
+############################
+# Docker
+############################
+docker-compose.override.yml
+.env.docker
+
+############################
+# Misc
+############################
+.tmp/
+temp/
