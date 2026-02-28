@@ -1,230 +1,269 @@
-👨‍💻 Vaga para apaixonados por criação de software
-===========================================
+# 📋 KanbanField
 
-A empresa
-----------
+Sistema de gerenciamento de projetos baseado em quadros Kanban com NestJS e Angular.
 
-Somos um [SaaS (Software as a service)](https://pt.wikipedia.org/wiki/Software_como_servi%C3%A7o) para empresas que possuem prestadores de serviços externos.
+![Status](https://img.shields.io/badge/status-active-success.svg)
+![License](https://img.shields.io/badge/license-UNLICENSED-blue.svg)
 
-Entregamos **controle**, **organização** e **melhor relacionamento com o cliente** para empresas de Climatização, Segurança eletrônica, Telecom, Provedores de internet, Montadoras de móveis, Empresas de limpeza, enfim, qualquer empresa que possui uma equipe de campo para realização de serviços.
+## 🌐 Deploy
 
-Nossa missão é melhorar a prestação de serviços no Brasil.
-
-Te convido a conhecer um pouco mais da Field e da nossa **cultura** pelo nosso instagram: [@FieldControl](https://www.instagram.com/fieldcontrol/)
-
-<p>
-  <img src="assets/fielders.jpeg" width="855"/>
-</p>
-
-Origem
-----------
-
-Um ponto importante é que a Field foi fundada por desenvolvedores, só por esse motivo você pode **TER CERTEZA** que aqui as coisas são muito diferentes das empresas tradicionais.
-
-Aqui utilizamos [princípios ágeis](http://www.manifestoagil.com.br/) **DE VERDADE** para criação de software. Veja bem, não estou falando de post its ou reuniões em pé.. E sim de: Pair programming, Continuous Integration, Continuous Deployment e claro, testes automatizados.
-
-Condições
-----------
-- Período: Integral
-- Onde: Qualquer lugar :)
-- Benefícios: Alimentação, Plano de saúde, Seguro de vida, [Pluralsight](https://www.pluralsight.com/), [Alura](https://www.alura.com.br/), [Amazon Books](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155) <3
-
-:house_with_garden: Você pode ler sobre nossa cidade no [G1](http://g1.globo.com/sao-paulo/sao-jose-do-rio-preto-aracatuba/especial-publicitario/prefeitura-de-rio-preto/rio-preto-noticias/noticia/2015/12/rio-preto-e-melhor-cidade-do-estado-e-segunda-do-pais-para-se-viver.html), [Infomoney](http://www.infomoney.com.br/minhas-financas/consumo/noticia/6391352/melhores-cidades-brasil-para-viver-veja-ranking) ou aqui na [Exame](https://exame.com/brasil/o-ranking-do-servico-publico-nas-100-maiores-cidades-do-brasil/).
-
-Trabalhamos com uma boa infraestrutura, nosso hardware é muito bom (você vai ter um notebook f#d@ com ssd e dois monitores :computer: :computer:) e possuímos um ambiente de trabalho agradável:
-
-<p float="left">
-  <img src="assets/field3.jpeg" width="215"/>
-  <img src="assets/field1.jpeg" width="382"/>
-  <img src="assets/field4.jpeg" width="215"/>
-</p>
-
-A empresa não possui hierarquias e você é convidado e desafiado a colaborar com todas as frentes de trabalho. Ou seja, aqui todas sugestões são bem vindas!
-
-Ah, e quando a Field bate meta (quase sempre) o frigobar fica assim:
-
-<p>
-  <img src="assets/frigobar-da-field-quando-meta-eh-batida.jpeg" width="400" />
-</p>
-
-Queremos a cada dia mais flexibilidade e continuar animados a evoluir nossas aplicações.
-
-Nosso trabalho é baseado em autogestão. Só existe uma regra de convivência: É proibido murmurar! Aqui as opiniões são discutidas, resolvidas e sempre chegamos a um consenso para melhorar a nossa convivência. Isso não foi descrito por um gerente de RH e sim por um desenvolvedor de software.
-
-Oportunidade
-----------
-
-Estamos em busca de desenvolvedores **Frontend** FODAS e APAIXONADOS para fazer parte do nosso time de produto.
-
-Na Field, o seu dia-a-dia será repleto de:
-
-```javascript
-[
-  'GitHub & Git <3',
-  'Muito, muito e muito JavaScript',
-  'Object-oriented programming, SOLID Principles & Design Patterns',
-  'Práticas e princípios ágeis (Pair programming, Continuous Integration, Continuous Deployment)',
-  'Testes de software (unitários, integração, e2e..)',
-  'Desafios de escalabilidade',
-  'Desafios de alta disponibilidade',
-  'Micro services e aplicações distribuídas',
-  'Amazon Web Services',
-  'PAAS & Cloud Services',
-  'Serverless apps',
-  'AngularJS, Angular',
-  'REST APIs',
-  'GraphQL APIs',
-  'Material Design',
-  'Open source software'
-]
-```
-
-Nossa stack tecnológica é predominantemente JavaScript, abrangendo Node.js, Single Page Applications (SPA) e Hybrid Mobile Apps.
-
-Acreditamos firmemente que excelentes desenvolvedores são capazes de selecionar a ferramenta mais adequada para cada desafio. Por essa razão, para resolver problemas específicos, recorremos às melhores alternativas disponíveis, o que nos leva a incluir uma pitada de C#, Java e PHP em nossas soluções.
-
-Nossos servidores residem na AWS, onde utilizamos a nuvem como nossa plataforma principal. Temos aplicativos funcionando com Elastic BeanStalk, armazenamento em S3 e arquiteturas serverless com AWS Lambda.
-
-Antes mesmo de avaliar o conhecimento técnico, valorizamos o perfil pessoal dos candidatos. Para nós, a determinação, o interesse e a curiosidade são qualidades essenciais. Se você é alguém proativo, interessado e que busca constantemente aprender, é isso que realmente importa para nós! 😊
+**[https://kanbanfield.up.railway.app/login](https://kanbanfield.up.railway.app/login)**
 
 ---
 
-## Requisitos Principais
+## 📑 Índice
 
-🌟 **Sem Ego**: Acreditamos que ninguém é melhor que ninguém e que todos podem aprender uns com os outros. Promovemos um ambiente onde a humildade, o respeito e a abertura para aprender e ensinar são valorizados.
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Framework, Linguagem e Ferramentas](#-framework-linguagem-e-ferramentas)
+- [Escolhas Tecnológicas](#-escolhas-tecnológicas)
+- [Princípios de Software](#-princípios-de-software)
+- [Desafios e Problemas](#-desafios-e-problemas)
+- [Melhorias e Próximas Implementações](#-melhorias-e-próximas-implementações)
+- [Vídeo de Apresentação](#-vídeo-de-apresentação)
+- [Como Rodar](#-como-rodar)
+- [Sobre Mim](#-sobre-mim)
+- [Contato](#-contato)
 
-📈 **Evolução Contínua**: Encorajamos o crescimento pessoal e profissional de todos os membros da equipe. Estamos comprometidos em fornecer oportunidades de aprendizado e desenvolvimento, permitindo que cada indivíduo evolua constantemente em sua jornada.
+---
 
-🚀 **Proatividade**: Buscamos indivíduos proativos, capazes de antecipar problemas e buscar soluções de forma autônoma.
+## 🎯 Sobre o Projeto
 
-🔑 **Sentimento de Dono**: Valorizamos profissionais que assumem responsabilidade pelo seu trabalho e estão comprometidos com o sucesso do projeto como se fossem os donos.
+**KanbanField** é uma aplicação full-stack para gerenciamento de projetos com metodologia Kanban. Permite criar projetos, organizar tarefas em colunas personalizáveis e acompanhar o progresso visualmente.
 
-🤝 **Boa Comunicação e Trabalho em Equipe**: Habilidades de comunicação eficaz e colaboração são essenciais para trabalhar de forma eficiente em equipe.
+**Funcionalidades principais:**
+- 🔐 Autenticação JWT
+- 📊 Múltiplos projetos
+- 📝 Drag-and-drop de tarefas
+- 🎨 Interface responsiva
+- 🧪 Testes unitários e E2E
 
-💻 **Proficiência em JavaScript e TypeScript**: Experiência sólida em JavaScript e TypeScript, demonstrando habilidade em desenvolver soluções robustas e escaláveis.
+---
 
-🎨 **Experiência com CSS e HTML Semântico**: Conhecimento prático em CSS e HTML Semântico para criar interfaces atraentes e acessíveis.
+## 🛠️ Framework, Linguagem e Ferramentas
 
-🔧 **Experiência Sólida com Angular e Ionic**: Capacidade comprovada no desenvolvimento com Angular e Ionic, demonstrando habilidade em construir aplicações web e mobile de alta qualidade.
+### Backend
+- **NestJS 11** - Framework Node.js progressivo com arquitetura modular
+- **TypeScript 5.7** - Type-safety e melhor DX
+- **Prisma 6.19** - ORM com type-safety e migrations automáticas
+- **PostgreSQL 17** - Banco de dados relacional
+- **Passport JWT** - Autenticação com tokens
+- **Bcrypt** - Hash de senhas
+- **Jest + SuperTest** - Testes unitários e E2E
 
-🖌️ **Familiaridade com Princípios de UX**: Compreensão dos princípios de User Experience (UX) para criar interfaces intuitivas e amigáveis aos usuários.
+### Frontend
+- **Angular 17** - Framework SPA completo
+- **TypeScript 5.4** - Linguagem tipada
+- **RxJS 7.8** - Programação reativa
+- **Angular CDK** - Drag-and-drop nativo
+- **FontAwesome** - Ícones vetoriais
 
-🌐 **Familiaridade com APIs REST, GraphQL e WebSockets**: Conhecimento em APIs REST, GraphQL e WebSockets para comunicação eficiente entre cliente e servidor.
+### DevOps
+- **Docker** - Containerização do PostgreSQL
+- **Makefile** - Automação de comandos
+- **Railway** - Deploy em produção
 
-🧪 **Prática em Testar Software**: Experiência prática em testes de software, incluindo testes unitários, integrados e de aceitação, garantindo a qualidade e a confiabilidade do sistema.
+---
 
-Estes requisitos refletem nossa busca por profissionais qualificados e comprometidos, capazes de contribuir de forma significativa para o sucesso de nossos projetos.
+## 🤔 Escolhas Tecnológicas
 
-O desafio de programação
-----------
-
-Se você é apaixonado por desenvolvimento de software e busca desafios para impulsionar sua carreira, este teste é para você! Realize o desafio abaixo e faça um fork deste repositório para começar a codificar. [Let the hacking begin](https://www.youtube.com/watch?v=Dvrdxn0kHL8)! 🚀
-
-# Teste de Programação: Kanban
-
-Este é um teste de programação que consiste em implementar um Kanban, utilizando Angular para o client side e NestJs para o back-end. 
-
-O objetivo é avaliar a capacidade do candidato em estruturar um projeto seguindo as boas práticas de ambos os frameworks e implementar um fluxo básico de colunas e cards dentro do Kanban.
-
-## Critérios de Avaliação
-
-Os critérios de avaliação para este teste são os seguintes:
-
-1. **Código Limpo e Organização**: Avalia a clareza, legibilidade e organização do código fonte.
-
-2. **Testes de Software**: Serão avaliados os testes unitários e integrados para garantir a robustez do sistema.
-
-3. **Semântica**: A utilização de nomes significativos para variáveis, funções, classes, etc., será observada.
-
-4. **Documentação do Projeto (README)**: A qualidade e completude da documentação do projeto, que inclui informações sobre como executar, testar e utilizar o sistema.
-
-5. **Segurança**: A adoção de práticas de segurança apropriadas, como proteção contra ataques comuns, será considerada.
-
-## Instruções
-
-1. Implemente um Kanban básico que permita a criação de colunas e cards.
-2. Utilize Angular para o desenvolvimento do cliente e NestJs para o desenvolvimento do servidor.
-3. Siga as boas práticas de desenvolvimento de software recomendadas pelos frameworks.
-4. Implemente testes unitários e integrados para garantir a qualidade e robustez do sistema.
-5. Documente o projeto de forma clara e completa neste arquivo README.
-
-## Entrega
-
-Você deve enviar a resolução do desafio via pull request nesse mesmo repositório ;)
-
-## Estrutura do Projeto
-
-A estrutura do projeto deve seguir as convenções padrão do Angular e do NestJs, com os arquivos de configuração e código-fonte organizados de maneira lógica e intuitiva.
-
-## Observações
-
-- Certifique-se de que o código está devidamente comentado e documentado para facilitar a compreensão e manutenção futura.
-- Evite a utilização de bibliotecas ou frameworks que não sejam necessários para a implementação do Kanban básico.
-- Qualquer dúvida ou problema encontrado durante a execução do projeto, entre em contato com os avaliadores.
-
-## Referências
+### NestJS
+Escolhi **NestJS** por:
+- Arquitetura modular bem definida (similar ao Angular)
+- TypeScript nativo com decorators
+- Dependency Injection
+- Ecossistema rico (Passport, Swagger, validação)
+- Facilita escalabilidade e testes
 
 ### Angular
+Escolhi **Angular** por:
+- Framework completo (routing, forms, HTTP, etc.)
+- TypeScript
+- RxJS integrado para programação reativa
+- Angular CDK para drag-and-drop
+- Estrutura consistente para projetos grandes
 
-- Documentação Oficial do Angular: [Angular Docs](https://angular.io/docs)
-- Repositório do Angular no GitHub: [Angular GitHub](https://github.com/angular/angular)
+### Prisma
+Escolhi **Prisma** por:
+- Type-safety superior com geração automática de tipos
+- Developer Experience (CLI, migrations, Studio)
+- Schema declarativo mais legível
+- Queries otimizadas e melhor performance
 
-### NestJs
+### PostgreSQL
+Escolhi **PostgreSQL** por:
+- Relações complexas (users → projects → columns → tasks)
+- ACID compliance e integridade transacional
+- Schemas bem definidos
+- Suporte a JOINs e queries complexas
 
-- Documentação Oficial do NestJs: [NestJs Docs](https://docs.nestjs.com/)
-- Repositório do NestJs no GitHub: [NestJs GitHub](https://github.com/nestjs/nest)
+---
 
-Estes recursos fornecem uma base sólida para aprender e se aprofundar nos frameworks Angular e NestJs.
+## 📐 Princípios de Software
 
-## Para Iniciantes
+### SOLID
+- **SRP**: Cada service/controller tem responsabilidade única
+- **OCP**: Guards e Interceptors extensíveis sem modificar código existente
+- **LSP**: DTOs e interfaces substituíveis
+- **ISP**: Interfaces específicas e coesas
+- **DIP**: Injeção de dependências via constructor
 
-Se você é um iniciante nesta jornada de desenvolvimento, queremos encorajá-lo a participar deste teste e fazer o seu melhor. Na Field, valorizamos a força de vontade, a iniciativa e o desejo de aprender.
+### Outros Princípios
+- **Clean Architecture**: Camadas bem definidas (Controllers → Services → Repository)
+- **Convention over Configuration**: Seguindo padrões NestJS/Angular
 
-Não se preocupe se você não conseguir entregar um projeto perfeito ou completo. O objetivo é que você ganhe experiência, aprenda com o processo e se desafie a ir além do que já conhece.
+---
 
-Aqui estão algumas dicas para ajudá-lo durante o teste:
+## 🚧 Desafios e Problemas
 
-1. **Comece com o Básico**: Concentre-se em entender os conceitos fundamentais do Angular e do NestJs. Explore tutoriais, documentações e exemplos de código para se familiarizar com as tecnologias.
+### 1. Drag-and-Drop entre Colunas
+**Desafio**: Implementar movimentação fluida de tarefas entre colunas com atualização de ordem.
 
-2. **Divida o Projeto em Etapas**: Em vez de tentar implementar tudo de uma vez, divida o projeto em etapas menores e gerenciáveis. Concentre-se em uma funcionalidade de cada vez e avance gradualmente.
+**Solução**: Utilizei Angular CDK com eventos `cdkDropListDropped`. Criei lógica para detectar mudança de coluna, recalcular ordem e atualizar backend mantendo UI sincronizada.
 
-3. **Não Tenha Medo de Errar**: O processo de aprendizado envolve tentativa e erro. Não se preocupe com os erros ou obstáculos que encontrar ao longo do caminho. Eles fazem parte do processo e são oportunidades de aprendizado.
+### 2. Autenticação JWT
+**Desafio**: Sistema seguro com proteção de rotas no backend e frontend.
 
-4. **Celebre suas Conquistas**: Cada pequeno progresso é uma conquista. Celebre suas realizações, por menores que sejam, e reconheça o esforço e a dedicação que você está dedicando ao projeto.
+**Solução**: Implementei Passport JWT Strategy + Guards no NestJS. No frontend, criei AuthGuard com interceptor HTTP que adiciona token automaticamente e redireciona ao expirar.
 
-Lembre-se, o importante é tentar e aprender durante o processo. Valorizamos sua iniciativa e estamos aqui para apoiá-lo em sua jornada de desenvolvimento. Boa sorte e divirta-se codificando! 🌟
+### 3. Relacionamentos Cascata
+**Desafio**: Deletar projeto e remover todas colunas/tarefas automaticamente.
 
-## Diferenciais
+**Solução**: Configurei `onDelete: Cascade` no schema Prisma para propagar deleções automaticamente.
 
-Além dos requisitos básicos do teste, a inclusão dos seguintes diferenciais pode agregar valor ao projeto:
+### 4. Validação e Tratamento de Erros
+**Desafio**: Feedback claro de erros para o usuário.
 
-### Aplicação Publicada e Rodando
+**Solução**: Usei `class-validator` no backend, exception filters customizados e toasts no frontend com códigos HTTP apropriados.
 
-- Configurar e publicar a aplicação em um ambiente de hospedagem como Heroku, Netlify, AWS, Azure, etc., para demonstrar a capacidade de implantar e disponibilizar o sistema para uso real.
+### 5. Testes Unitários e de Integração
+**Desafio**: Garantir qualidade de código com cobertura completa de testes no backend, isolando dependências e testando fluxos E2E.
 
-### Testes Integrados e E2E
+**Solução**: 
+- **Testes Unitários**: Implementei testes com Jest usando mocks do PrismaService para isolar a lógica de negócio. Cada service possui testes que verificam casos de sucesso e falha (auth, projects, columns, tasks, users).
+- **Testes E2E**: Criei testes de integração com SuperTest que validam toda a API, testando fluxos completos (registro → login → projetos → colunas → tarefas) e verificando permissões.
+- **Mocking**: Usei `jest.fn()` e mocks customizados para isolar dependências externas (PrismaService, JwtService, bcrypt).
+- **Validação Completa**: Testes verificam códigos HTTP, estrutura de respostas, casos de erro e segurança (proteção de rotas, ownership de recursos).
 
-- Implementar testes integrados e end-to-end (E2E) utilizando ferramentas como Jasmine, Protractor, Jest, etc., para garantir a qualidade e estabilidade do sistema em diferentes níveis de teste.
+---
 
-### API em GraphQL ao Invés de REST
+## 🚀 Melhorias e Próximas Implementações
 
-- Utilizar GraphQL como interface de programação de aplicativos (API) em vez de REST para oferecer uma forma mais flexível e eficiente de consultar e manipular dados entre o cliente e o servidor.
+### Funcionalidades
+- **Colaboração em tempo real** - WebSockets para múltiplos usuários
+- **Notificações** - Lembretes de prazos e atividades
+- **Compartilhamento** - Convidar membros com níveis de permissão
+- **Anexos** - Upload de arquivos nas tarefas
+- **Filtros avançados** - Busca e ordenação customizável
+- **Dashboard** - Gráficos de progresso e estatísticas
+- **Templates** - Projetos pré-configurados
 
-### Realtime com Socket.io
 
-- Implementar funcionalidades em tempo real utilizando Socket.io para fornecer uma experiência interativa e dinâmica aos usuários, permitindo atualizações instantâneas e sincronizadas entre os diferentes clientes conectados à aplicação.
+---
 
-A inclusão destes diferenciais demonstrará uma compreensão mais avançada e a aplicação de tecnologias modernas e práticas de desenvolvimento de software, elevando a qualidade e a experiência do usuário final.
+## 🎥 Vídeo de Apresentação
+
+🎬 **https://jam.dev/c/2c647d5e-5d73-45ec-a25f-9049e7d1db4a**
+
+<!-- Demonstrando: Login, drag-and-drop, criar, editar e excluir board -->
+
+---
+
+## 🚀 Como Rodar
+
+### Pré-requisitos
+- Node.js >= 18.x
+- Docker (recomendado)
+- Make (recomendado)
+
+### Instalação Rápida
+
+```bash
+# 1. Clone o repositório
+git clone <https://github.com/Gabrieldevreis/Kanban-Field>
+cd kanban-Field
+
+# 2. Configure o .env
+cd backend
+cp .env.example .env
+# Edite o .env com suas configurações
+cd ..
+
+# 3. Inicie tudo de uma vez
+make dev
+```
+
+A aplicação estará rodando em:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:8002
+
+### Variáveis de Ambiente (.env)
+
+```env
+# JWT
+JWT_SECRET="sua_chave_secreta_forte"
+JWT_EXPIRES_IN="24h"
+
+# Database
+DATABASE_URL=postgresql://postgres:postgres@localhost:5132/kanban_db
+POSTGRES_DB=kanban_db
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+
+# Server
+PORT=8002
+```
+
+### Comandos Úteis
+
+```bash
+make dev          # Inicia backend + frontend + database
+make test         # Roda todos os testes
+make docker       # Inicia apenas o PostgreSQL
+make help         # Lista todos os comandos disponíveis
+```
+
+### Instalação Manual
+
+```bash
+# Backend
+cd backend
+npm install
+npm run prisma:generate
+npx prisma migrate dev
+npm run start:dev
+
+# Frontend (novo terminal)
+cd frontend
+npm install
+npm start
+
+# Database (novo terminal)
+docker network create kanban-networks 2>/dev/null || true
+docker compose up -d
+```
+
+---
+
+## 👤 Sobre Mim
+
+Me chamo **Gabriel Reis**, tenho 25 anos e moro em Ibirá (SP). Atualmente curso **Análise e Desenvolvimento de Sistemas (ADS)** na **UNINTER**, polo de **São José do Rio Preto**.
+
+Iniciei minha jornada na programação em 2022, começando meus estudos com **HTML, CSS e JavaScript**. Desde o início, busquei evoluir não apenas tecnicamente, mas também através do networking, participando de comunidades de desenvolvedores que contribuíram significativamente para meu crescimento profissional.
+
+Com o tempo, conheci os frameworks como **React e Angular**. Tive a oportunidade de trabalhar em um SaaS cuja stack principal era **Angular**, experiência que foi fundamental para meu desenvolvimento nesse framework. Durante esse período, também conheci o **NestJS**, especialmente ao participar do desafio da FieldControl, o que despertou meu interesse pelo desenvolvimento back-end.
+
+Atualmente, sigo aprimorando meus conhecimentos em Angular, estudando também conceitos de UI e UX para desenvolver interfaces mais intuitivas e eficientes. Além disso, estou me aprofundando em NestJS, aprendendo Ionic para desenvolvimento mobile e explorando WebSockets para implementação de funcionalidades em tempo real.
+
+Estou em constante evolução, sempre buscando novos desafios e oportunidades para crescer como desenvolvedor. 
 
 
-Dúvidas?
-----------
-Abra um issue ou me mande um e-mail em **luiz@fieldcontrol.com.br**, fechou? :)
+---
 
-Gostariamos de entender como você pensa e as decisões que você tomou durante o desenvolvimento. Então, quando for enviar seu pull request, por favor responda:
+## 📞 Contato
 
-- Qual ferramentas e bibliotecas (libraries, framework, tools etc) você usou
-- Porque você optou pela tecnologia X e não a Y
-- Quais princípios da engenharia de software que você usou?
-- Desafios e problemas que você enfrentou e como você resolveu
-- O que você entende que pode ser melhorado e como fazer isso
+- **Email**: gabrielreisdev@gmail.com
+- **Telefone**: (17) 981241887
+- **LinkedIn**: https://www.linkedin.com/in/gabrieldevreis/
+- **GitHub**: https://github.com/gabrieldevreis
+
+---
