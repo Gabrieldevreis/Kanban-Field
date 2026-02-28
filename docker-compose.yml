@@ -1,0 +1,22 @@
+services:
+  kanban-db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data_kanban:/var/lib/postgresql/data
+    ports:
+      - 5132:5432
+    restart: always
+    networks:
+      - kanban-networks
+
+volumes:
+  postgres_data_kanban:
+
+networks:
+  kanban-networks:
+    external: true
+
