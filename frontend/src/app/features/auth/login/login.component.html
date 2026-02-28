@@ -1,0 +1,80 @@
+<div class="container" [class.dark-mode]="isDarkMode">
+  <!-- Header -->
+  <div class="header">
+    <div class="theme-toggle" (click)="toggleTheme()">
+      <div class="theme-toggle-circle">
+        <i class="theme-icon" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
+      </div>
+    </div>
+
+    <div class="logo">
+      <img src="assets/icons/logo2.svg" alt="Kanban Field Logo" class="logo-image">
+    </div>
+    <p class="tagline">Organize suas tarefas com eficiência e estilo</p>
+  </div>
+
+  <!-- Login Card -->
+  <div class="login-card">
+    <h1 class="login-title">Login</h1>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Mensagem de sucesso -->
+      <div class="success-message" *ngIf="successMessage">
+        <i class="fa-solid fa-circle-check"></i>
+        {{ successMessage }}
+      </div>
+
+      <!-- Mensagem de erro -->
+      <div class="alert-message error-alert" *ngIf="errorMessage">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        {{ errorMessage }}
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <div class="input-wrapper">
+          <i class="input-icon fa-solid fa-envelope"></i>
+          <input
+            type="email"
+            class="form-input"
+            placeholder=""
+            formControlName="email"
+          />
+        </div>
+        <div class="field-error" *ngIf="email?.invalid && email?.touched">
+          <span *ngIf="email?.errors?.['required']">O email é obrigatório.</span>
+          <span *ngIf="email?.errors?.['email']">Email inválido.</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Senha</label>
+        <div class="input-wrapper">
+          <i class="input-icon fa-solid fa-lock"></i>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-input"
+            placeholder=""
+            formControlName="password"
+          />
+          <i class="toggle-password" [ngClass]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'" (click)="togglePasswordVisibility()"></i>
+        </div>
+        <div class="field-error" *ngIf="password?.invalid && password?.touched">
+          <span *ngIf="password?.errors?.['required']">A senha é obrigatória.</span>
+          <span *ngIf="password?.errors?.['minlength']">
+            A senha deve ter pelo menos 6 caracteres.
+          </span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-login" [disabled]="isLoading">
+        {{ isLoading ? 'Entrando...' : 'Entrar' }}
+      </button>
+
+      <div class="login-footer">
+        <span class="footer-text">Não tem conta?</span>
+        <a routerLink="/register" class="footer-link">Cadastre-se</a>
+      </div>
+    </form>
+  </div>
+</div>

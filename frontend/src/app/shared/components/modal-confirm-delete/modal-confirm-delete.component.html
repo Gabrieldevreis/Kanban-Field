@@ -1,0 +1,43 @@
+<div class="modal-overlay" *ngIf="isOpen" (click)="closeModal()">
+  <div class="modal-delete" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>{{ title }}</h2>
+      <button class="close-btn" (click)="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="color: #ff6b6b; margin-top: 1rem; margin-bottom: 1rem;">
+        {{ warningMessage }}
+      </p>
+      
+      <div class="form-group-delete" *ngIf="requireNameConfirmation">
+        <label [attr.for]="'confirmName-' + itemType">
+          Para confirmar, digite o nome {{ itemType === 'coluna' ? 'da' : 'da' }} {{ itemType }}: <strong>{{ itemName }}</strong>
+        </label>
+        <input 
+          type="text" 
+          [id]="'confirmName-' + itemType"
+          class="input-confirm"
+          [(ngModel)]="confirmName"
+          (input)="onConfirmNameChange()"
+          [placeholder]="'Digite o nome ' + (itemType === 'coluna' ? 'da' : 'da') + ' ' + itemType"
+          autocomplete="off"
+        />
+      </div>
+
+      <p *ngIf="!requireNameConfirmation" style="margin-top: 1rem; margin-bottom: 1rem;">
+        Tem certeza que deseja excluir {{ itemType === 'coluna' ? 'esta' : 'esta' }} {{ itemType }} <strong>{{ itemName }}</strong>?
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-cancel" (click)="closeModal()">Cancelar</button>
+      <button 
+        type="button" 
+        class="btn btn-danger" 
+        (click)="onConfirm()" 
+        [disabled]="isLoading || !canConfirm()"
+      >
+        {{ isLoading ? 'Excluindo...' : 'Excluir' }}
+      </button>
+    </div>
+  </div>
+</div>

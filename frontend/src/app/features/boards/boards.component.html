@@ -1,0 +1,261 @@
+<div id="projectsView">
+  <div class="projects-header">
+    <div>
+      <h1 class="page-title">Meus Projetos</h1>
+      <p class="page-subtitle">Organize e gerencie todos os seus projetos</p>
+    </div>
+
+    <button 
+      class="btn-new-project" 
+      *ngIf="projects.length > 0"
+      (click)="openProjectModal()" 
+      [disabled]="isLoading"
+    >
+      + Novo Projeto
+    </button>
+
+    <!-- Mensagem de erro -->
+    <div class="error-message" *ngIf="errorMessage" style="margin: 1rem 0; padding: 0.75rem; background: #fee; border: 1px solid #fcc; border-radius: 4px; color: #c33;">
+      {{ errorMessage }}
+    </div>
+
+    <app-modal-boards
+      [isOpen]="isCreateBoardModalOpen"
+      [project]="selectedProject"
+      [isEditMode]="isEditMode"
+      (close)="closeProjectModal()"
+      (create)="onCreateBoard($event)"
+      (update)="onUpdateBoard($event)"
+    >
+    </app-modal-boards>
+
+    <!-- Modal de confirmação de exclusão -->
+    <div class="modal-overlay" *ngIf="isDeleteModalOpen" (click)="closeDeleteModal()">
+      <div class="modal-delete" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h2>Confirmar Exclusão</h2>
+          <button class="close-btn" (click)="closeDeleteModal()">×</button>
+        </div>
+        <div class="modal-body">
+          <p style="color: #ff6b6b; margin-top: 1rem; margin-bottom: 1rem;">Esta ação não pode ser desfeita.</p>
+          
+          <div class="form-group-delete">
+            <label for="confirmBoardName">
+              Para confirmar, digite o nome do board: <strong>{{ projectToDelete?.title }}</strong>
+            </label>
+            <input 
+              type="text" 
+              id="confirmBoardName"
+              class="input-confirm"
+              [(ngModel)]="confirmBoardName"
+              (input)="onConfirmNameChange()"
+              placeholder="Digite o nome do board"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-cancel" (click)="closeDeleteModal()">Cancelar</button>
+          <button 
+            type="button" 
+            class="btn btn-danger" 
+            (click)="onDeleteBoard()" 
+            [disabled]="isLoading || !isDeleteConfirmed"
+          >
+            {{ isLoading ? 'Excluindo...' : 'Excluir' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de Busca e Filtros -->
+  <div class="filters-container" *ngIf="projects.length > 0">
+    <!-- Busca -->
+    <div class="search-box">
+      <i class="fa-solid fa-search search-icon"></i>
+      <input 
+        type="text" 
+        class="search-input" 
+        placeholder="Buscar projetos..."
+        [(ngModel)]="searchTerm"
+      />
+      <button 
+        class="clear-search-btn" 
+        *ngIf="searchTerm"
+        (click)="clearSearch()"
+        title="Limpar busca"
+      >
+        <i class="fa-solid fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Ordenação -->
+    <div class="sort-container">
+      <label class="sort-label">
+        <i class="fa-solid fa-arrow-down-wide-short"></i>
+        Ordenar:
+      </label>
+      <select class="sort-select" [(ngModel)]="sortBy">
+        <option value="date">Mais recentes</option>
+        <option value="name">Nome (A-Z)</option>
+        <option value="tasks">Mais tarefas</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Filtros de Status -->
+  <div class="projects-filter" *ngIf="projects.length > 0">
+    <button
+      class="filter-btn"
+      [class.active]="activeFilter === 'all'"
+      (click)="filterProjects('all')"
+    >
+      <i class="fa-solid fa-border-all"></i>
+      Todos
+      <span class="filter-count">{{ projectsCount.all }}</span>
+    </button>
+
+    <button
+      class="filter-btn"
+      [class.active]="activeFilter === 'active'"
+      (click)="filterProjects('active')"
+    >
+      <i class="fa-solid fa-play"></i>
+      Ativos
+      <span class="filter-count">{{ projectsCount.active }}</span>
+    </button>
+
+    <button
+      class="filter-btn"
+      [class.active]="activeFilter === 'completed'"
+      (click)="filterProjects('completed')"
+    >
+      <i class="fa-solid fa-circle-check"></i>
+      Concluídos
+      <span class="filter-count">{{ projectsCount.completed }}</span>
+    </button>
+  </div>
+
+  <!-- Mensagem quando não há resultados -->
+  <div class="no-results" *ngIf="filteredProjects.length === 0 && !isLoading">
+    <i class="fa-solid fa-inbox"></i>
+    <p *ngIf="searchTerm">Nenhum projeto encontrado para "{{ searchTerm }}"</p>
+    <p *ngIf="!searchTerm && activeFilter === 'completed'">Nenhum projeto concluído ainda</p>
+    <p *ngIf="!searchTerm && activeFilter === 'active'">Nenhum projeto ativo</p>
+    <p *ngIf="!searchTerm && activeFilter === 'all'">Nenhum projeto criado ainda</p>
+    <button class="btn-primary" (click)="openProjectModal()" *ngIf="!searchTerm && activeFilter === 'all'">
+      <i class="fa-solid fa-plus"></i>
+      Criar Primeiro Projeto
+    </button>
+  </div>
+
+  <div class="projects-grid" *ngIf="filteredProjects.length > 0">
+    <div
+      class="project-card"
+      *ngFor="let project of filteredProjects"
+      [style.border-left-color]="project.color"
+    >
+      <div class="project-actions">
+        <button class="btn-action btn-edit" (click)="openEditModal(project); $event.stopPropagation()" title="Editar">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <button class="btn-action btn-delete" (click)="confirmDelete(project); $event.stopPropagation()" title="Excluir">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+
+      <div class="project-content" (click)="showDashboard(project)">
+        <div class="project-icon" [style.background]="project.color + '20'">
+          <i class="fa-solid" [ngClass]="project.icon" [style.color]="project.color"></i>
+        </div>
+
+        <h3 class="project-title">{{ project.title }}</h3>
+
+        <p class="project-description">
+          {{ project.description }}
+        </p>
+
+        <div class="project-stats">
+          <div class="stat-item">
+            <span><i class="fa-solid fa-list-check"></i></span>
+            <span>{{ project.tasks }} {{ project.tasks === 1 ? 'tarefa' : 'tarefas' }}</span>
+          </div>
+        </div>
+
+        <!-- <div class="project-members">
+          <ng-container *ngFor="let member of project.members">
+            <div class="member-avatar" *ngIf="!member.startsWith('+')">
+              {{ member }}
+            </div>
+
+            <span class="member-count" *ngIf="member.startsWith('+')">
+              {{ member }}
+            </span>
+          </ng-container>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Paginação -->
+  <div class="pagination-container" *ngIf="totalPages > 1 && filteredProjects.length > 0">
+    <div class="pagination-info">
+      <span>Mostrando {{ (currentPage - 1) * itemsPerPage + 1 }} - {{ Math.min(currentPage * itemsPerPage, totalProjects) }} de {{ totalProjects }} projetos</span>
+    </div>
+
+    <div class="pagination-controls">
+      <button 
+        class="pagination-btn pagination-prev" 
+        [disabled]="!hasPreviousPage || isLoading"
+        (click)="previousPage()"
+        title="Página anterior"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+        Anterior
+      </button>
+
+      <div class="pagination-pages">
+        <button 
+          *ngIf="currentPage > 3"
+          class="pagination-page"
+          (click)="goToPage(1)"
+        >
+          1
+        </button>
+        
+        <span *ngIf="currentPage > 3" class="pagination-ellipsis">...</span>
+
+        <button
+          *ngFor="let page of visiblePages"
+          class="pagination-page"
+          [class.active]="page === currentPage"
+          (click)="goToPage(page)"
+          [disabled]="isLoading"
+        >
+          {{ page }}
+        </button>
+
+        <span *ngIf="currentPage < totalPages - 2" class="pagination-ellipsis">...</span>
+
+        <button 
+          *ngIf="currentPage < totalPages - 2"
+          class="pagination-page"
+          (click)="goToPage(totalPages)"
+        >
+          {{ totalPages }}
+        </button>
+      </div>
+
+      <button 
+        class="pagination-btn pagination-next" 
+        [disabled]="!hasNextPage || isLoading"
+        (click)="nextPage()"
+        title="Próxima página"
+      >
+        Próxima
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>

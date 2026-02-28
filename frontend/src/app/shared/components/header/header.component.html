@@ -1,0 +1,22 @@
+<header>
+  <div class="header-content">
+    <div class="logo"><img src="assets/icons/logo2.svg" alt="Kanban" /></div>
+    <nav class="header-nav" *ngIf="isAuthenticated">
+      <a class="nav-item" routerLink="/boards" routerLinkActive="active">
+        <span class="nav-icon"><i class="fa-brands fa-trello"></i></span>
+        <span>Boards</span>
+      </a>
+    </nav>
+    <div class="header-actions" *ngIf="isAuthenticated">
+      <button class="btn-theme-toggle" (click)="toggleTheme()" [title]="isDarkMode ? 'Modo Claro' : 'Modo Escuro'">
+        <i [class]="isDarkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+      </button>
+      <div class="user-info" *ngIf="user">
+        <span class="user-name">{{ user.name }}</span>
+        <button class="btn-header" (click)="logout()" title="Sair">
+          <i class="fa-solid fa-sign-out-alt"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

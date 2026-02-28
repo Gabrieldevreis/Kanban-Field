@@ -1,0 +1,101 @@
+<div
+  class="modal-overlay"
+  *ngIf="isOpen"
+  (click)="closeModal()"
+>
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title">Editar Tarefa</h3>
+      <button class="close-btn" (click)="closeModal()">×</button>
+    </div>
+
+    <div class="modal-body">
+      <form #taskForm="ngForm">
+        <div class="form-group">
+          <label class="form-label">Título da Tarefa</label>
+          <input
+            type="text"
+            class="form-input"
+            name="title"
+            [(ngModel)]="task.title"
+            placeholder="Digite o título da tarefa"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Descrição</label>
+          <textarea
+            class="form-input"
+            name="description"
+            [(ngModel)]="task.description"
+            placeholder="Adicione uma descrição detalhada"
+          ></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Prioridade</label>
+            <select class="form-input" name="priority" [(ngModel)]="task.priority">
+              <option value="low">Baixa</option>
+              <option value="medium">Média</option>
+              <option value="high">Alta</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tag</label>
+            <input
+              type="text"
+              class="form-input"
+              name="tag"
+              [(ngModel)]="task.tag"
+              placeholder="ex: docs, design"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input 
+              type="checkbox" 
+              name="completed"
+              [(ngModel)]="task.completed"
+              class="checkbox-input"
+            />
+            <span class="checkbox-text">Marcar como concluída</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Cor da Tarefa</label>
+          <div class="color-picker">
+            <div
+              class="color-option red"
+              [class.selected]="task.color === 'red'"
+              (click)="selectColor('red')"
+            ></div>
+            <div
+              class="color-option orange"
+              [class.selected]="task.color === 'orange'"
+              (click)="selectColor('orange')"
+            ></div>
+            <div
+              class="color-option green"
+              [class.selected]="task.color === 'green'"
+              (click)="selectColor('green')"
+            ></div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-delete" (click)="confirmDelete()">Excluir</button>
+      <button class="btn btn-cancel" (click)="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" (click)="saveTask()">
+        Salvar Alterações
+      </button>
+    </div>
+  </div>
+</div>
+

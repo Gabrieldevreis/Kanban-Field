@@ -1,0 +1,141 @@
+<div class="container" [class.dark-mode]="isDarkMode">
+  <!-- Header -->
+  <div class="header">
+    <div class="theme-toggle" (click)="toggleTheme()">
+      <div class="theme-toggle-circle">
+        <i class="theme-icon" [ngClass]="isDarkMode ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
+      </div>
+    </div>
+
+    <div class="logo">
+      <img src="assets/icons/logo2.svg" alt="Kanban Field Logo" class="logo-image">
+    </div>
+    <p class="tagline">Organize suas tarefas com eficiência e estilo</p>
+  </div>
+
+  <!-- Register Card -->
+  <div class="signup-card">
+    <h1 class="signup-title">Cadastro</h1>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <!-- Mensagem de sucesso -->
+      <div class="success-message" *ngIf="successMessage">
+        <i class="fa-solid fa-circle-check"></i>
+        {{ successMessage }}
+      </div>
+
+      <!-- Mensagem de erro -->
+      <div class="alert-message error-alert" *ngIf="errorMessage">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        {{ errorMessage }}
+      </div>
+
+      <!-- Nome -->
+      <div class="form-group">
+        <label class="form-label">Nome Completo</label>
+        <div class="input-wrapper">
+          <i class="input-icon fa-solid fa-user"></i>
+          <input
+            type="text"
+            class="form-input"
+            placeholder=""
+            formControlName="firstname"
+          />
+        </div>
+        <div class="field-error" *ngIf="signupForm.get('firstname')?.touched && signupForm.get('firstname')?.invalid">
+          <span *ngIf="signupForm.get('firstname')?.errors?.['required']">O nome é obrigatório.</span>
+          <span *ngIf="signupForm.get('firstname')?.errors?.['minlength']">O nome deve ter no mínimo 3 caracteres.</span>
+          <span *ngIf="signupForm.get('firstname')?.errors?.['maxlength']">O nome deve ter no máximo 50 caracteres.</span>
+          <span *ngIf="signupForm.get('firstname')?.errors?.['pattern']">O nome deve conter apenas letras e espaços.</span>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <div class="input-wrapper">
+          <i class="input-icon fa-solid fa-envelope"></i>
+          <input
+            type="email"
+            class="form-input"
+            placeholder=""
+            formControlName="email"
+          />
+        </div>
+        <div class="field-error" *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+          Insira um email válido.
+        </div>
+      </div>
+
+      <!-- Senha -->
+      <div class="form-group">
+        <label class="form-label">Senha</label>
+        <div class="input-wrapper">
+          <i class="input-icon fa-solid fa-lock"></i>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-input"
+            placeholder=""
+            formControlName="password"
+            (input)="updatePasswordStrength()"
+          />
+          <i class="toggle-password" [ngClass]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'" (click)="togglePasswordVisibility()"></i>
+        </div>
+
+      <!-- Confirmar Senha -->
+      <div class="form-group confirm-password-group">
+        <label class="form-label">Confirmar Senha</label>
+        <div class="input-wrapper">
+          <i class="input-icon fa-solid fa-lock"></i>
+          <input
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            class="form-input"
+            placeholder=""
+            formControlName="confirmPassword"
+          />
+          <i class="toggle-password" [ngClass]="showConfirmPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'" (click)="toggleConfirmPasswordVisibility()"></i>
+        </div>
+        <div class="field-error" *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.errors?.['passwordMismatch']">
+          As senhas não coincidem.
+        </div>
+      </div>
+
+        <!-- Password Requirements Checklist -->
+        <div class="password-requirements">
+          <div class="requirement-item" [class.valid]="passwordChecks.minLength">
+            <i [ngClass]="passwordChecks.minLength ? 'fa-solid fa-circle-check' : 'fa-regular fa-circle'"></i>
+            <span>Mínimo 8 caracteres</span>
+          </div>
+          <div class="requirement-item" [class.valid]="passwordChecks.hasUpperCase">
+            <i [ngClass]="passwordChecks.hasUpperCase ? 'fa-solid fa-circle-check' : 'fa-regular fa-circle'"></i>
+            <span>Letra maiúscula</span>
+          </div>
+          <div class="requirement-item" [class.valid]="passwordChecks.hasLowerCase">
+            <i [ngClass]="passwordChecks.hasLowerCase ? 'fa-solid fa-circle-check' : 'fa-regular fa-circle'"></i>
+            <span>Letra minúscula</span>
+          </div>
+          <div class="requirement-item" [class.valid]="passwordChecks.hasSpecialChar">
+            <i [ngClass]="passwordChecks.hasSpecialChar ? 'fa-solid fa-circle-check' : 'fa-regular fa-circle'"></i>
+            <span>Caractere especial</span>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <button 
+        type="submit" 
+        class="btn-signup"
+        [disabled]="isLoading || signupForm.invalid"
+      >
+        <span *ngIf="!isLoading">Criar Conta</span>
+        <span *ngIf="isLoading">Criando conta...</span>
+      </button>
+
+      <div class="signup-footer">
+        <span class="footer-text">Já tem uma conta?</span>
+        <a routerLink="/login" class="footer-link">Faça login</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div
+  class="modal-overlay"
+  *ngIf="isOpen && column"
+  (click)="closeModal()"
+>
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title">Editar Coluna</h3>
+      <button class="close-btn" (click)="closeModal()">×</button>
+    </div>
+
+    <div class="modal-body">
+      <form #columnForm="ngForm">
+        <div class="form-group">
+          <label class="form-label">Nome da Coluna</label>
+          <input
+            type="text"
+            class="form-input"
+            name="title"
+            [(ngModel)]="column.title"
+            placeholder="Digite o nome da coluna"
+            required
+          />
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-delete" (click)="deleteColumn()">Excluir Coluna</button>
+      <button class="btn btn-cancel" (click)="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" (click)="saveColumn()" [disabled]="!column.title">
+        Salvar Alterações
+      </button>
+    </div>
+  </div>
+</div>
