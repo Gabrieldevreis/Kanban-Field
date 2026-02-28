@@ -2,9 +2,6 @@
 
 Sistema de gerenciamento de projetos baseado em quadros Kanban com NestJS e Angular.
 
-![Status](https://img.shields.io/badge/status-active-success.svg)
-![License](https://img.shields.io/badge/license-UNLICENSED-blue.svg)
-
 ## 🌐 Deploy
 
 **[https://kanbanfield.up.railway.app/login](https://kanbanfield.up.railway.app/login)**
